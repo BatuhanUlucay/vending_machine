@@ -1,10 +1,24 @@
 const initialState = {
+  isLoggedIn: false,
+  remainingAttempt: 3,
+  session: null,
   userBalance: 0,
   selectedProduct: null,
 };
 
 const vendingMachineReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "LOGIN":
+      return {
+        ...state,
+        isLoggedIn: true,
+        session: action.payload,
+      };
+    case "FAIL_LOGIN_ATTEMPT":
+      return {
+        ...state,
+        remainingAttempt: state.remainingAttempt - 1,
+      };
     case "INSERT_MONEY":
       return {
         ...state,

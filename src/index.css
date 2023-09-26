@@ -58,3 +58,9 @@ div.product > img {
   padding: 2rem;
   border-radius: 2rem;
 }
+
+.login {
+  width: 10rem;
+  margin: 2rem auto;
+  display: grid;
+}

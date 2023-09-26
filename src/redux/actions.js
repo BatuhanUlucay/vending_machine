@@ -19,3 +19,11 @@ export const resetMachine = () => ({
 export const collectMoney = () => ({
   type: "COLLECT_MONEY",
 });
+
+export const login = () => ({
+  type: "LOGIN",
+});
+
+export const failLoginAttempt = () => ({
+  type: "FAIL_LOGIN_ATTEMPT",
+});
