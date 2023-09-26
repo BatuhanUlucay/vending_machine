@@ -27,3 +27,7 @@ export const login = () => ({
 export const failLoginAttempt = () => ({
   type: "FAIL_LOGIN_ATTEMPT",
 });
+
+export const expireUserSession = () => ({
+  type: "EXPIRE_USER_SESSION",
+});

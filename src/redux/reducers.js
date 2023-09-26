@@ -19,6 +19,11 @@ const vendingMachineReducer = (state = initialState, action) => {
         ...state,
         remainingAttempt: state.remainingAttempt - 1,
       };
+    case "EXPIRE_USER_SESSION":
+      return {
+        ...state,
+        isLoggedIn: false,
+      };
     case "INSERT_MONEY":
       return {
         ...state,
