@@ -36,3 +36,25 @@ div.product > img {
   width: 6rem;
   height: 6rem;
 }
+
+.money-insert {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.coin {
+  background-color: rebeccapurple;
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.system-dashboard {
+  background-color: gray;
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 2rem;
+}

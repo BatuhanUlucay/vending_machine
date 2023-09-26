@@ -1,12 +1,21 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectProduct } from "../redux/actions";
 
-function Product({ name, price, imageUrl }) {
+function Product({ product }) {
+  const dispatch = useDispatch();
+  function handleSelectItemClick() {
+    dispatch(selectProduct(product));
+  }
+
   return (
     <div className="product">
-      <img src={imageUrl} alt={name + " logo"} width={100} />
-      <div>{name}</div>
-      <div>{price} ₺</div>
-      <button className="btn-select">Select item</button>
+      <img src={product.imageUrl} alt={product.name + " logo"} width={100} />
+      <div>{product.name}</div>
+      <div>{product.price} ₺</div>
+      <button className="btn-select" onClick={handleSelectItemClick}>
+        Select item
+      </button>
     </div>
   );
 }
