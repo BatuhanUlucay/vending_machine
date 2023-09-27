@@ -1,4 +1,5 @@
 import { products } from "../data/products";
+import { components } from "../data/components";
 
 const initialState = {
   isLoggedIn: false,
@@ -9,6 +10,7 @@ const initialState = {
   products: products,
   selectedProduct: null,
   robotArmSpinning: false,
+  components: components,
 };
 
 const vendingMachineReducer = (state = initialState, action) => {
@@ -18,6 +20,13 @@ const vendingMachineReducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: true,
         session: action.payload,
+        components: components.map((c) => {
+          if (c.id === 2) {
+            return { ...c, status: 1 };
+          } else {
+            return c;
+          }
+        }),
       };
     case "FAIL_LOGIN_ATTEMPT":
       return {
@@ -68,6 +77,13 @@ const vendingMachineReducer = (state = initialState, action) => {
         ...state,
         userBalance: 0,
         isLoggedIn: false,
+        components: components.map((c) => {
+          if (c.id === 2) {
+            return { ...c, status: 0 };
+          } else {
+            return c;
+          }
+        }),
       };
     case "RESET_MACHINE":
       return initialState;

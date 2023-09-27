@@ -1,12 +1,12 @@
 import React from "react";
 
-function Component({ name, energyConsumption, status }) {
+function Component({ component }) {
   return (
     <div
       className="component"
-      style={{ backgroundColor: status ? "green" : "red" }}
+      style={{ backgroundColor: component.status ? "green" : "red" }}
     >
-      <h4>{name}</h4>
+      <h4>{component.name}</h4>
     </div>
   );
 }
