@@ -1,6 +1,11 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .main-layout {
   display: flex;
   margin-left: 3rem;
+  margin-top: 2rem;
   justify-content: flex-start;
 }
 
@@ -58,12 +63,26 @@ div.product > img {
   cursor: pointer;
 }
 
+/* ------------------ SYSTEM DASHBOARD -------------- */
+
 .system-dashboard {
-  background-color: gray;
-  width: 20rem;
+  background-color: #c8cece;
+  width: 300px;
+  height: 17rem;
   padding: 2rem;
-  border-radius: 2rem;
+  border-radius: 10px;
 }
+
+.component {
+  margin: 1rem;
+  height: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* ------------------ SYSTEM DASHBOARD -------------- */
 
 /* ------------------ LOGIN -------------- */
 
@@ -95,9 +114,10 @@ div.product > img {
 }
 
 .password-field {
-  width: 75%;
-  padding: 5px;
-  margin-top: 4rem;
+  display: block;
+  width: 92%;
+  padding: 10px;
+  margin-top: 8rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;

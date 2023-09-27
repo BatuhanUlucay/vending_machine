@@ -6,7 +6,9 @@ function Component({ component }) {
       className="component"
       style={{ backgroundColor: component.status ? "green" : "red" }}
     >
-      <h4>{component.name}</h4>
+      <>
+        {component.logo} {component.name}
+      </>
     </div>
   );
 }

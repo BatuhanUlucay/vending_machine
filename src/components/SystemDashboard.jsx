@@ -21,7 +21,9 @@ function SystemDashboard() {
       {state.components.map((component) => (
         <Component component={component} />
       ))}
-      <div>Current energy consumption: {getCurrentEnergyConsumption()}</div>
+      <div>
+        Current energy consumption is {getCurrentEnergyConsumption()} units/hour
+      </div>
     </div>
   );
 }
