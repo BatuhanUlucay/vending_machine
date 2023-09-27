@@ -1,28 +1,42 @@
 import Product from "./Product";
-import { products } from "../data/products";
 import MoneyInsert from "./MoneyInsert";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import LoginContainer from "./LoginContainer";
 import SessionExpire from "./SessionExpire";
+import { giveRefund } from "../redux/actions";
+import RobotArmSpinner from "./RobotArmSpinner";
 
 function VendingMachine() {
   const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const FIVE_MINS_IN_MS = 5 * 60 * 1000;
+  const TEN_SECS_IN_MS = 10 * 1000;
   const dateTimeAfterFiveMins = new Date().getTime() + FIVE_MINS_IN_MS;
+  const dateTimeAfterTenSecs = new Date().getTime() + TEN_SECS_IN_MS;
+
+  function handleGiveRefundClick() {
+    alert(`Money given back as refund: ${state.userBalance}. Have a nice day!`);
+    dispatch(giveRefund());
+  }
 
   if (!state.isLoggedIn) {
     return <LoginContainer />;
   }
 
+  if (state.robotArmSpinning) {
+    return <RobotArmSpinner targetDate={dateTimeAfterTenSecs} />;
+  }
+
   return (
     <div className="vending-machine">
       <SessionExpire targetDate={dateTimeAfterFiveMins} />
-      {products.map((product) => (
+      {state.products.map((product) => (
         <Product product={product} />
       ))}
       <MoneyInsert />
       <h2>Your Balance: {state.userBalance} ₺</h2>
+      <button onClick={handleGiveRefundClick}>Give Refund</button>
       {state.selectedProduct && (
         <h2>Selected Product: {state.selectedProduct.name}</h2>
       )}

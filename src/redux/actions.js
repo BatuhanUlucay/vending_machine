@@ -31,3 +31,15 @@ export const failLoginAttempt = () => ({
 export const expireUserSession = () => ({
   type: "EXPIRE_USER_SESSION",
 });
+
+export const giveRefund = () => ({
+  type: "GIVE_REFUND",
+});
+
+export const giveSelectedProduct = () => ({
+  type: "GIVE_SELECTED_PRODUCT",
+});
+
+export const cancelRequest = () => ({
+  type: "CANCEL_REQUEST",
+});
