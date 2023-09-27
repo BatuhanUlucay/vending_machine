@@ -20,8 +20,9 @@ export const collectMoney = () => ({
   type: "COLLECT_MONEY",
 });
 
-export const login = () => ({
+export const login = (session) => ({
   type: "LOGIN",
+  payload: session,
 });
 
 export const failLoginAttempt = () => ({
@@ -42,4 +43,8 @@ export const giveSelectedProduct = () => ({
 
 export const cancelRequest = () => ({
   type: "CANCEL_REQUEST",
+});
+
+export const logout = () => ({
+  type: "LOGOUT",
 });

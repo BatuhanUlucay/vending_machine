@@ -5,6 +5,7 @@ import LoginContainer from "./LoginContainer";
 import SessionExpire from "./SessionExpire";
 import { giveRefund } from "../redux/actions";
 import RobotArmSpinner from "./RobotArmSpinner";
+import SupplierDashboard from "./SupplierDashboard";
 
 function VendingMachine() {
   const state = useSelector((state) => state);
@@ -28,17 +29,21 @@ function VendingMachine() {
     return <RobotArmSpinner targetDate={dateTimeAfterTenSecs} />;
   }
 
-  return (
-    <div className="vending-machine">
-      <SessionExpire targetDate={dateTimeAfterFiveMins} />
-      {state.products.map((product) => (
-        <Product product={product} />
-      ))}
-      <MoneyInsert />
-      <h2>Your Balance: {state.userBalance} ₺</h2>
-      <button onClick={handleGiveRefundClick}>Give Refund & Logout</button>
-    </div>
-  );
+  if (state.session === "supplier") {
+    return <SupplierDashboard />;
+  } else {
+    return (
+      <div className="vending-machine">
+        <SessionExpire targetDate={dateTimeAfterFiveMins} />
+        {state.products.map((product) => (
+          <Product product={product} />
+        ))}
+        <MoneyInsert />
+        <h2>Your Balance: {state.userBalance} ₺</h2>
+        <button onClick={handleGiveRefundClick}>Give Refund & Logout</button>
+      </div>
+    );
+  }
 }
 
 export default VendingMachine;

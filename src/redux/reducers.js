@@ -77,6 +77,7 @@ const vendingMachineReducer = (state = initialState, action) => {
         ...state,
         userBalance: 0,
         isLoggedIn: false,
+        session: null,
         components: components.map((c) => {
           if (c.id === 2) {
             return { ...c, status: 0 };
@@ -86,9 +87,22 @@ const vendingMachineReducer = (state = initialState, action) => {
         }),
       };
     case "RESET_MACHINE":
-      return initialState;
+      return {
+        ...state,
+        products: products,
+      };
     case "COLLECT_MONEY":
-      return state;
+      return {
+        ...state,
+        machineBalance: 0,
+      };
+
+    case "LOGOUT":
+      return {
+        ...state,
+        isLoggedIn: false,
+        session: null,
+      };
     default:
       return state;
   }
