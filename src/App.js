@@ -9,8 +9,10 @@ const store = createStore(vendingMachineReducer);
 function App() {
   return (
     <Provider store={store}>
-      <SystemDashboard />
-      <VendingMachine />
+      <div className="main-layout">
+        <SystemDashboard />
+        <VendingMachine />
+      </div>
     </Provider>
   );
 }

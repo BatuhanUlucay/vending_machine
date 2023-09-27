@@ -33,11 +33,12 @@ function LoginContainer() {
   }
 
   return (
-    <div className="login">
+    <div className="login-container">
       <button onClick={handleClickUserLoginClick}>User Login</button>
       {state.remainingAttempt > 0 && (
         <>
           <input
+            className="password-field"
             type="password"
             onChange={handlePasswordChange}
             value={passwordInput}
