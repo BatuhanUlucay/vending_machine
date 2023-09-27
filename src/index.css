@@ -14,7 +14,7 @@
   margin-bottom: 2rem;
   display: grid;
   column-gap: 2rem;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   height: 10rem;
   background-color: #ebcccc;
   align-items: center;

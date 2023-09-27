@@ -36,10 +36,7 @@ function VendingMachine() {
       ))}
       <MoneyInsert />
       <h2>Your Balance: {state.userBalance} ₺</h2>
-      <button onClick={handleGiveRefundClick}>Give Refund</button>
-      {state.selectedProduct && (
-        <h2>Selected Product: {state.selectedProduct.name}</h2>
-      )}
+      <button onClick={handleGiveRefundClick}>Give Refund & Logout</button>
     </div>
   );
 }

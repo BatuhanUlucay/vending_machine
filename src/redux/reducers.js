@@ -41,22 +41,26 @@ const vendingMachineReducer = (state = initialState, action) => {
       };
     case "SELECT_PRODUCT":
       const product = action.payload;
-      if (state.userBalance >= product.price) {
-        return {
-          ...state,
-          selectedProduct: product,
-          robotArmSpinning: true,
-        };
-      } else {
-        alert("Not enough money for selected item.");
-      }
-      return state;
-
+      return {
+        ...state,
+        selectedProduct: product,
+        robotArmSpinning: true,
+      };
     case "GIVE_SELECTED_PRODUCT":
       return {
         ...state,
         userBalance: state.userBalance - state.selectedProduct.price,
         machineBalance: state.machineBalance + state.selectedProduct.price,
+        products: state.products.map((p) => {
+          if (p.id === state.selectedProduct.id) {
+            return {
+              ...state.selectedProduct,
+              quantity: state.selectedProduct.quantity - 1,
+            };
+          } else {
+            return p;
+          }
+        }),
         robotArmSpinning: false,
       };
     case "GIVE_REFUND":
