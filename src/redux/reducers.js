@@ -44,18 +44,57 @@ const vendingMachineReducer = (state = initialState, action) => {
         userBalance: state.userBalance + action.payload,
       };
     case "CANCEL_REQUEST":
+      let components4 = state.components;
+
+      components4 = components4.map((c) => {
+        if (c.id === 0) {
+          c.status = 0;
+        } else if (c.id === 1) {
+          c.status = 0;
+        } else if (c.id === 3) {
+          c.status = 0;
+        }
+        return c;
+      });
+
       return {
         ...state,
         robotArmSpinning: false,
+        components: components4,
       };
     case "SELECT_PRODUCT":
       const product = action.payload;
+      let components3 = state.components;
+
+      components3 = components3.map((c) => {
+        if (c.id === 0) {
+          c.status = 0;
+        } else if (c.id === 1) {
+          c.status = 0;
+        } else if (c.id === 3) {
+          c.status = 1;
+        }
+        return c;
+      });
       return {
         ...state,
         selectedProduct: product,
         robotArmSpinning: true,
+        components: components3,
       };
     case "GIVE_SELECTED_PRODUCT":
+      let components5 = state.components;
+
+      components5 = components5.map((c) => {
+        if (c.id === 0) {
+          c.status = 0;
+        } else if (c.id === 1) {
+          c.status = 0;
+        } else if (c.id === 3) {
+          c.status = 0;
+        }
+        return c;
+      });
       return {
         ...state,
         userBalance: state.userBalance - state.selectedProduct.price,
@@ -70,6 +109,7 @@ const vendingMachineReducer = (state = initialState, action) => {
             return p;
           }
         }),
+        components: components5,
         robotArmSpinning: false,
       };
     case "GIVE_REFUND":
@@ -97,11 +137,45 @@ const vendingMachineReducer = (state = initialState, action) => {
         machineBalance: 0,
       };
 
+    case "ADJUST_HEATER_COOLER":
+      const mode = action.payload;
+      let components2 = state.components;
+      if (mode === "cool") {
+        components2 = components2.map((c) => {
+          if (c.id === 0) {
+            c.status = 1;
+          } else if (c.id === 1) {
+            c.status = 0;
+          }
+          return c;
+        });
+      } else {
+        components2 = components2.map((c) => {
+          if (c.id === 0) {
+            c.status = 0;
+          } else if (c.id === 1) {
+            c.status = 1;
+          }
+          return c;
+        });
+      }
+      return {
+        ...state,
+        components: components2,
+      };
+
     case "LOGOUT":
       return {
         ...state,
         isLoggedIn: false,
         session: null,
+        components: components.map((c) => {
+          if (c.id === 2) {
+            return { ...c, status: 0 };
+          } else {
+            return c;
+          }
+        }),
       };
     default:
       return state;

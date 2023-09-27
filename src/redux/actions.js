@@ -48,3 +48,8 @@ export const cancelRequest = () => ({
 export const logout = () => ({
   type: "LOGOUT",
 });
+
+export const adjustHeaterCooler = (mode) => ({
+  type: "ADJUST_HEATER_COOLER",
+  payload: mode,
+});

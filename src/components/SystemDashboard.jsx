@@ -1,6 +1,7 @@
 import React from "react";
 import Component from "./Component";
 import { useSelector } from "react-redux";
+import Weather from "./Weather";
 
 function SystemDashboard() {
   const state = useSelector((state) => state);
@@ -16,6 +17,7 @@ function SystemDashboard() {
 
   return (
     <div className="system-dashboard">
+      <Weather cityName={"Ankara"} />
       {state.components.map((component) => (
         <Component component={component} />
       ))}
