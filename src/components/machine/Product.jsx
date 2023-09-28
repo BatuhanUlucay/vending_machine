@@ -18,12 +18,15 @@ function Product({ product }) {
   }
 
   return (
-    <div className="product">
+    <div className="product rounded-medium grid text-white">
       <img src={product.imageUrl} alt={product.name + " logo"} width={100} />
       <div>{product.name}</div>
       <div>{product.price} ₺</div>
       <div>{product.quantity} remaining</div>
-      <button className="btn-select" onClick={handleSelectItemClick}>
+      <button
+        className="btn-select rounded-medium"
+        onClick={handleSelectItemClick}
+      >
         Select item
       </button>
     </div>

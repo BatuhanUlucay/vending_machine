@@ -35,19 +35,29 @@ function LoginContainer() {
   }
 
   return (
-    <div className="login-container">
-      <button onClick={handleClickUserLoginClick}>User Login</button>
+    <div className="login-container bg-soft-gray rounded-small">
+      <button
+        className="rounded-small text-white"
+        onClick={handleClickUserLoginClick}
+      >
+        User Login
+      </button>
       {state.remainingAttempt > 0 && (
         <>
           <input
-            className="password-field"
+            className="password-field rounded-small"
             type="password"
             onChange={handlePasswordChange}
             value={passwordInput}
             name="password"
             placeholder="Password"
           />
-          <button onClick={handleSupplierLoginClick}>Supplier Login</button>
+          <button
+            className="rounded-small text-white"
+            onClick={handleSupplierLoginClick}
+          >
+            Supplier Login
+          </button>
         </>
       )}
     </div>

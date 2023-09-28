@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Component({ component }) {
   return (
     <div
-      className="component"
+      className="component rounded-small"
       style={{ backgroundColor: component.status ? "green" : "red" }}
     >
       <>

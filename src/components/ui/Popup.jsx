@@ -11,7 +11,7 @@ const Popup = () => {
 
   return state.isPopupOpen ? (
     <div className="popup-overlay">
-      <div className="popup">
+      <div className="popup rounded-small shadow-small">
         <button className="close-button" onClick={handleClosePopUp}>
           X
         </button>

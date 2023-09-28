@@ -42,14 +42,17 @@ function VendingMachine() {
     return <SupplierDashboard />;
   } else {
     return (
-      <div className="vending-machine">
+      <div className="vending-machine bg-soft-gray rounded-small">
         <SessionExpire targetDate={dateTimeAfterFiveMins} />
         {state.products.map((product) => (
           <Product product={product} />
         ))}
         <MoneyInsert />
         <h2>Your Balance: {state.userBalance} ₺</h2>
-        <button className="btn-refund" onClick={handleGiveRefundClick}>
+        <button
+          className="btn-negative rounded-small text-white"
+          onClick={handleGiveRefundClick}
+        >
           Give Refund & Logout
         </button>
       </div>

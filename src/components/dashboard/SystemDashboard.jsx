@@ -16,7 +16,7 @@ function SystemDashboard() {
   }
 
   return (
-    <div className="system-dashboard">
+    <div className="system-dashboard bg-soft-gray rounded-small">
       <Weather cityName={"Ankara"} />
       {state.components.map((component) => (
         <Component component={component} />

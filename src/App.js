@@ -10,7 +10,7 @@ const store = createStore(vendingMachineReducer);
 function App() {
   return (
     <Provider store={store}>
-      <div className="main-layout">
+      <div className="main-layout flex">
         <SystemDashboard />
         <Popup />
         <VendingMachine />

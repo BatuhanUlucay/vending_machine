@@ -11,7 +11,7 @@ function Coin({ unit }) {
   }
 
   return (
-    <button className="coin" onClick={handleCoinClick}>
+    <button className="coin rounded-full" onClick={handleCoinClick}>
       {unit} ₺
     </button>
   );
