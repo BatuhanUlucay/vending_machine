@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { collectMoney, resetMachine, showPopup } from "../redux/actions";
-import { logout } from "../redux/actions";
+import { collectMoney, resetMachine, showPopup } from "../../redux/actions";
+import { logout } from "../../redux/actions";
 
 function SupplierDashboard() {
   const dispatch = useDispatch();

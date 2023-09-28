@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { adjustHeaterCooler } from "../redux/actions";
-import { components } from "../data/components";
+import { adjustHeaterCooler } from "../../redux/actions";
+import { components } from "../../data/components";
 
 const OPTIMUM_DRINK_TEMPERATURE = 4;
 

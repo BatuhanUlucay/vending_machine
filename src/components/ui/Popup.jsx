@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closePopup } from "../redux/actions";
+import { closePopup } from "../../redux/actions";
 
 const Popup = () => {
   const dispatch = useDispatch();

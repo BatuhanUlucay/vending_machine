@@ -1,11 +1,11 @@
 import Product from "./Product";
 import MoneyInsert from "./MoneyInsert";
 import { useSelector, useDispatch } from "react-redux";
-import LoginContainer from "./LoginContainer";
+import LoginContainer from "../login/LoginContainer";
 import SessionExpire from "./SessionExpire";
-import { giveRefund, showPopup } from "../redux/actions";
+import { giveRefund, showPopup } from "../../redux/actions";
 import RobotArmSpinner from "./RobotArmSpinner";
-import SupplierDashboard from "./SupplierDashboard";
+import SupplierDashboard from "../dashboard/SupplierDashboard";
 
 function VendingMachine() {
   const state = useSelector((state) => state);

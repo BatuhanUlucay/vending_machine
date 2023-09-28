@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectProduct, showPopup } from "../redux/actions";
+import { selectProduct, showPopup } from "../../redux/actions";
 
 function Product({ product }) {
   const dispatch = useDispatch();

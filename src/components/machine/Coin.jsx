@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { insertMoney } from "../redux/actions";
+import { insertMoney } from "../../redux/actions";
 
 function Coin({ unit }) {
   const dispatch = useDispatch();

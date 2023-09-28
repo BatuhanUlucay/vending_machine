@@ -1,7 +1,7 @@
 import React from "react";
-import { useCountdown } from "../hooks/useCountdown";
+import { useCountdown } from "../../hooks/useCountdown";
 import { useDispatch } from "react-redux";
-import { expireUserSession } from "../redux/actions";
+import { expireUserSession } from "../../redux/actions";
 
 const SessionExpire = ({ targetDate }) => {
   const [minutes, seconds] = useCountdown(targetDate);

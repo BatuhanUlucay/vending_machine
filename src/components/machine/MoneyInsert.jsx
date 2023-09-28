@@ -1,5 +1,5 @@
 import React from "react";
-import { moneyUnits } from "../data/moneyUnits";
+import { moneyUnits } from "../../data/moneyUnits";
 import Coin from "./Coin";
 
 function MoneyInsert() {

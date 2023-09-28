@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, showPopup } from "../redux/actions";
-import { securityCheck } from "../util/security";
-import { failLoginAttempt } from "../redux/actions";
+import { login, showPopup } from "../../redux/actions";
+import { securityCheck } from "../../util/security";
+import { failLoginAttempt } from "../../redux/actions";
 
 function LoginContainer() {
   const dispatch = useDispatch();

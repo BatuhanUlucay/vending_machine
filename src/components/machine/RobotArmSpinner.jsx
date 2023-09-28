@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Watch } from "react-loader-spinner";
-import { useCountdown } from "../hooks/useCountdown";
+import { useCountdown } from "../../hooks/useCountdown";
 import { useDispatch, useSelector } from "react-redux";
 import {
   giveSelectedProduct,
   cancelRequest,
   showPopup,
-} from "../redux/actions";
+} from "../../redux/actions";
 
 function RobotArmSpinner({ targetDate }) {
   const dispatch = useDispatch();
