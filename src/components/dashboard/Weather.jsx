@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { adjustHeaterCooler } from "../../redux/actions";
 import { components } from "../../data/components";
+import PropTypes from "prop-types";
 
 const OPTIMUM_DRINK_TEMPERATURE = 4;
 
@@ -68,3 +69,7 @@ function Weather({ cityName }) {
 }
 
 export default Weather;
+
+Weather.propTypes = {
+  component: PropTypes.string,
+};

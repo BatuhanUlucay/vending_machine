@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Component({ component }) {
   return (
@@ -14,3 +15,7 @@ function Component({ component }) {
 }
 
 export default Component;
+
+Component.propTypes = {
+  component: PropTypes.object,
+};

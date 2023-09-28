@@ -2,6 +2,7 @@ import React from "react";
 import { useCountdown } from "../../hooks/useCountdown";
 import { useDispatch } from "react-redux";
 import { expireUserSession } from "../../redux/actions";
+import PropTypes from "prop-types";
 
 const SessionExpire = ({ targetDate }) => {
   const [minutes, seconds] = useCountdown(targetDate);
@@ -24,3 +25,7 @@ const SessionExpire = ({ targetDate }) => {
 };
 
 export default SessionExpire;
+
+SessionExpire.propTypes = {
+  component: PropTypes.instanceOf(Date),
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProduct, showPopup } from "../../redux/actions";
+import PropTypes from "prop-types";
 
 function Product({ product }) {
   const dispatch = useDispatch();
@@ -30,3 +31,7 @@ function Product({ product }) {
 }
 
 export default Product;
+
+Product.propTypes = {
+  component: PropTypes.object,
+};

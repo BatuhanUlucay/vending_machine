@@ -7,6 +7,7 @@ import {
   cancelRequest,
   showPopup,
 } from "../../redux/actions";
+import PropTypes from "prop-types";
 
 function RobotArmSpinner({ targetDate }) {
   const dispatch = useDispatch();
@@ -44,3 +45,7 @@ function RobotArmSpinner({ targetDate }) {
 }
 
 export default RobotArmSpinner;
+
+RobotArmSpinner.propTypes = {
+  component: PropTypes.instanceOf(Date),
+};
