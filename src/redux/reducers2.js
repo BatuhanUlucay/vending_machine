@@ -10,39 +10,39 @@ import {
 } from "../util/machineUtils";
 
 const initialState = {
-  isLoggedIn: false,
-  remainingAttempt: 3,
-  session: null,
+  // isLoggedIn: false,
+  // remainingAttempt: 3,
+  // session: null,
   userBalance: 0,
   machineBalance: 0,
   products: products,
   selectedProduct: null,
   robotArmSpinning: false,
   components: components,
-  isPopupOpen: false,
-  popUpContent: "",
+  // isPopupOpen: false,
+  // popUpContent: "",
 };
 
 const vendingMachineReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOGIN":
-      return {
-        ...state,
-        isLoggedIn: true,
-        session: action.payload,
-        components: updateComponentsLights(state.components, 1),
-      };
-    case "FAIL_LOGIN_ATTEMPT":
-      return {
-        ...state,
-        remainingAttempt: state.remainingAttempt - 1,
-      };
-    case "EXPIRE_USER_SESSION":
-      return {
-        ...state,
-        isLoggedIn: false,
-        components: updateComponentsLights(state.components, 0),
-      };
+    // case "LOGIN":
+    //   return {
+    //     ...state,
+    //     isLoggedIn: true,
+    //     session: action.payload,
+    //     components: updateComponentsLights(state.components, 1),
+    //   };
+    // case "FAIL_LOGIN_ATTEMPT":
+    //   return {
+    //     ...state,
+    //     remainingAttempt: state.remainingAttempt - 1,
+    //   };
+    // case "EXPIRE_USER_SESSION":
+    //   return {
+    //     ...state,
+    //     isLoggedIn: false,
+    //     components: updateComponentsLights(state.components, 0),
+    //   };
     case "INSERT_MONEY":
       return {
         ...state,
@@ -98,30 +98,28 @@ const vendingMachineReducer = (state = initialState, action) => {
         ...state,
         components: toggleHeaterAndCooler(state.components, mode),
       };
-    case "LOGOUT":
-      return {
-        ...state,
-        isLoggedIn: false,
-        session: null,
-        components: updateComponentsLights(state.components, 0),
-      };
-    case "SHOW_POPUP":
-      const content = action.payload;
-      return {
-        ...state,
-        isPopupOpen: true,
-        popUpContent: content,
-      };
-    case "CLOSE_POPUP":
-      return {
-        ...state,
-        isPopupOpen: false,
-        popUpContent: "",
-      };
+    // case "LOGOUT":
+    //   return {
+    //     ...state,
+    //     isLoggedIn: false,
+    //     session: null,
+    //     components: updateComponentsLights(state.components, 0),
+    //   };
+    // case "SHOW_POPUP":
+    //   const content = action.payload;
+    //   return {
+    //     ...state,
+    //     isPopupOpen: true,
+    //     popUpContent: content,
+    //   };
+    // case "CLOSE_POPUP":
+    //   return {
+    //     ...state,
+    //     isPopupOpen: false,
+    //     popUpContent: "",
+    //   };
 
     default:
       return state;
   }
 };
-
-export default vendingMachineReducer;

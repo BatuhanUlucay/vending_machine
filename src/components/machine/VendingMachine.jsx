@@ -3,12 +3,13 @@ import MoneyInsert from "./MoneyInsert";
 import { useSelector, useDispatch } from "react-redux";
 import LoginContainer from "../login/LoginContainer";
 import SessionExpire from "./SessionExpire";
-import { giveRefund, showPopup } from "../../redux/actions";
+import { giveRefund, logout, showPopup } from "../../redux/actions";
 import RobotArmSpinner from "./RobotArmSpinner";
 import SupplierDashboard from "../dashboard/SupplierDashboard";
 
 function VendingMachine() {
-  const state = useSelector((state) => state);
+  const machineState = useSelector((state) => state.machine);
+  const loginState = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
   const FIVE_MINS_IN_MS = 5 * 60 * 1000;
@@ -20,35 +21,36 @@ function VendingMachine() {
     dispatch(
       showPopup(
         `${
-          state.userBalance > 0
-            ? `Money given back as refund: ${state.userBalance}  ₺.`
+          machineState.userBalance > 0
+            ? `Money given back as refund: ${machineState.userBalance}  ₺.`
             : ""
         } Have a nice day!`
       )
     );
 
     dispatch(giveRefund());
+    dispatch(logout());
   }
 
-  if (!state.isLoggedIn) {
+  if (!loginState.isLoggedIn) {
     return <LoginContainer />;
   }
 
-  if (state.robotArmSpinning) {
+  if (machineState.robotArmSpinning) {
     return <RobotArmSpinner targetDate={dateTimeAfterTenSecs} />;
   }
 
-  if (state.session === "supplier") {
+  if (loginState.session === "supplier") {
     return <SupplierDashboard />;
   } else {
     return (
       <div className="vending-machine bg-soft-gray rounded-small">
         <SessionExpire targetDate={dateTimeAfterFiveMins} />
-        {state.products.map((product) => (
-          <Product product={product} />
+        {machineState.products.map((product) => (
+          <Product product={product} key={product.id} />
         ))}
         <MoneyInsert />
-        <h2>Your Balance: {state.userBalance} ₺</h2>
+        <h2>Your Balance: {machineState.userBalance} ₺</h2>
         <button
           className="btn-negative rounded-small text-white"
           onClick={handleGiveRefundClick}

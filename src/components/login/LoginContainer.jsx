@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, showPopup } from "../../redux/actions";
+import { login, showPopup, lightsOn } from "../../redux/actions";
 import { securityCheck } from "../../util/security";
 import { failLoginAttempt } from "../../redux/actions";
 
 function LoginContainer() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const loginState = useSelector((state) => state.login);
   const [passwordInput, setPasswordInput] = useState("");
 
   function handleClickUserLoginClick() {
     dispatch(login("user"));
+    dispatch(lightsOn());
   }
 
   function handleSupplierLoginClick() {
     // Checks for 3 failed login try. Disables supplier login for scam protection.
     if (!securityCheck(passwordInput)) {
       dispatch(failLoginAttempt());
-      if (state.remainingAttempt > 1) {
+      if (loginState.remainingAttempt > 1) {
         dispatch(showPopup("Invalid password!"));
       } else {
         dispatch(
@@ -28,6 +29,7 @@ function LoginContainer() {
       }
     } else {
       dispatch(login("supplier"));
+      dispatch(lightsOn());
     }
   }
 
@@ -43,7 +45,7 @@ function LoginContainer() {
       >
         User Login
       </button>
-      {state.remainingAttempt > 0 && (
+      {loginState.remainingAttempt > 0 && (
         <>
           <input
             className="password-field rounded-small"

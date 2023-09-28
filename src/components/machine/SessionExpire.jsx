@@ -1,7 +1,7 @@
 import React from "react";
 import { useCountdown } from "../../hooks/useCountdown";
 import { useDispatch } from "react-redux";
-import { expireUserSession } from "../../redux/actions";
+import { expireUserSession, lightsOff } from "../../redux/actions";
 import PropTypes from "prop-types";
 
 const SessionExpire = ({ targetDate }) => {
@@ -11,6 +11,7 @@ const SessionExpire = ({ targetDate }) => {
   // If there is no user activity for 5 mins, expires the session.
   if (minutes + seconds <= 0) {
     dispatch(expireUserSession());
+    dispatch(lightsOff());
   }
 
   // Displays a countdown on vending machine

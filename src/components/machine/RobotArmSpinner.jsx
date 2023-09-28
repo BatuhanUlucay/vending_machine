@@ -12,14 +12,16 @@ import PropTypes from "prop-types";
 
 function RobotArmSpinner({ targetDate }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const machineState = useSelector((state) => state.machine);
   const [minutes, seconds] = useCountdown(targetDate);
 
   // If there is no cancel request for 10 seconds, gives the product to the customer.
   useEffect(() => {
     if (minutes + seconds <= 0) {
       dispatch(giveSelectedProduct());
-      dispatch(showPopup(`Here is your ${state.selectedProduct.name}. Enjoy!`));
+      dispatch(
+        showPopup(`Here is your ${machineState.selectedProduct.name}. Enjoy!`)
+      );
     }
   }, [seconds, minutes]);
 

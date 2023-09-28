@@ -13,7 +13,7 @@ const FIVE_MINS_IN_MS = 5 * 60 * 1000;
 
 function Weather({ cityName }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.machine);
   // Initial weather data is 20 C
   const [weather, setWeather] = useState(20);
 

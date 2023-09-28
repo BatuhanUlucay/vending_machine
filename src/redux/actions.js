@@ -58,3 +58,11 @@ export const showPopup = (content) => ({
 export const closePopup = () => ({
   type: "CLOSE_POPUP",
 });
+
+export const lightsOn = () => ({
+  type: "LIGHTS_ON",
+});
+
+export const lightsOff = () => ({
+  type: "LIGHTS_OFF",
+});

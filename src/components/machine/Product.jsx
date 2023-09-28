@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 function Product({ product }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const machineState = useSelector((state) => state.machine);
 
   function handleSelectItemClick() {
-    if (state.userBalance < product.price) {
+    if (machineState.userBalance < product.price) {
       // Checks user balance
       dispatch(showPopup("Not enough money for selected product."));
     } else if (product.quantity <= 0) {
