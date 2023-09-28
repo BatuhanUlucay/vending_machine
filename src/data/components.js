@@ -1,6 +1,7 @@
 import { BsSnow2, BsFire, BsLightbulb } from "react-icons/bs";
 import { GiRobotGrab } from "react-icons/gi";
 
+// Initial components state
 export const components = [
   {
     id: 0,

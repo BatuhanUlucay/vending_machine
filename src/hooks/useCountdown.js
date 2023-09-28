@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Custom hook for starting a countdown
 const useCountdown = (targetDate) => {
   const countDownDate = new Date(targetDate).getTime();
 

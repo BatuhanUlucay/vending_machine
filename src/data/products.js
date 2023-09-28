@@ -1,3 +1,4 @@
+// Initial products state
 export const products = [
   {
     id: 0,

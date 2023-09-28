@@ -9,6 +9,7 @@ function SupplierDashboard() {
   const state = useSelector((state) => state);
 
   function handleCollectMoneyClick() {
+    // Checks if machine has money in it.
     if (state.machineBalance <= 0) {
       dispatch(showPopup("There is no money in the machine right now."));
     } else {
@@ -21,6 +22,7 @@ function SupplierDashboard() {
 
   function handleResetProductsClick() {
     const currentProducts = state.products;
+    // Checks whether machine is already full.
     if (isMachineAlreadyFull(currentProducts)) {
       dispatch(showPopup("Machine is already full of products!"));
     } else {

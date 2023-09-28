@@ -22,6 +22,7 @@ export function getCurrentEnergyConsumption(components) {
   return currentConsumption;
 }
 
+// If robot arm is on, both of the cooler and the heater can be off. But if not, one of them should start
 export function shouldTriggerHeaterOrCooler(components) {
   return (
     components[0].status === 0 &&

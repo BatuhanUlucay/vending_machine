@@ -8,9 +8,12 @@ const SessionExpire = ({ targetDate }) => {
   const [minutes, seconds] = useCountdown(targetDate);
   const dispatch = useDispatch();
 
+  // If there is no user activity for 5 mins, expires the session.
   if (minutes + seconds <= 0) {
     dispatch(expireUserSession());
   }
+
+  // Displays a countdown on vending machine
   return (
     <div className="session-expire">
       <p>Your session expires in </p>

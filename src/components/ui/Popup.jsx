@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { closePopup } from "../../redux/actions";
 
+// Reusable popup component for displaying text on an overlay to inform the customer or the supplier
 const Popup = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);

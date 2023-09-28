@@ -14,6 +14,7 @@ function LoginContainer() {
   }
 
   function handleSupplierLoginClick() {
+    // Checks for 3 failed login try. Disables supplier login for scam protection.
     if (!securityCheck(passwordInput)) {
       dispatch(failLoginAttempt());
       if (state.remainingAttempt > 1) {

@@ -9,8 +9,10 @@ function Product({ product }) {
 
   function handleSelectItemClick() {
     if (state.userBalance < product.price) {
+      // Checks user balance
       dispatch(showPopup("Not enough money for selected product."));
     } else if (product.quantity <= 0) {
+      // Checks product quantity
       dispatch(showPopup(`There is no ${product.name} left.`));
     } else {
       dispatch(selectProduct(product));

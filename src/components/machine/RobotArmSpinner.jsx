@@ -14,6 +14,8 @@ function RobotArmSpinner({ targetDate }) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const [minutes, seconds] = useCountdown(targetDate);
+
+  // If there is no cancel request for 10 seconds, gives the product to the customer.
   useEffect(() => {
     if (minutes + seconds <= 0) {
       dispatch(giveSelectedProduct());
