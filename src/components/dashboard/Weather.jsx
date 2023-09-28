@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { adjustHeaterCooler } from "../../redux/actions";
@@ -17,19 +17,21 @@ function Weather({ cityName }) {
   // Initial weather data is 20 C
   const [weather, setWeather] = useState(20);
 
-  const ref = useRef(null);
-
+  // Update weather every 5 minutes.
   useEffect(() => {
-    ref.current = setInterval(getCurrentWeather, FIVE_MINS_IN_MS);
-    getCurrentWeather();
-
-    return () => {
-      if (ref.current) {
-        clearInterval(ref.current);
-      }
+    const getCurrentWeather = () => {
+      axios.get(`${WEATHER_API_URL}&q=${cityName}&aqi=no`).then((response) => {
+        setWeather(response.data.current.temp_c);
+      });
     };
+    getCurrentWeather();
+    const interval = setInterval(() => {
+      getCurrentWeather();
+    }, FIVE_MINS_IN_MS);
+    return () => clearInterval(interval);
   }, []);
 
+  // Decide whether cooler or heater will be running according to current temperature.
   useEffect(() => {
     if (weather >= OPTIMUM_DRINK_TEMPERATURE) {
       dispatch(adjustHeaterCooler("cool"));
@@ -38,6 +40,7 @@ function Weather({ cityName }) {
     }
   }, [weather]);
 
+  // Disable cooling and heating when robot arm is on. This is for not to exceed 5 unit/hour energy consumption.
   useEffect(() => {
     if (shouldTriggerHeaterOrCooler(state.components)) {
       if (weather >= OPTIMUM_DRINK_TEMPERATURE) {
@@ -47,17 +50,6 @@ function Weather({ cityName }) {
       }
     }
   }, [state.components[3].status]);
-
-  const getCurrentWeather = () => {
-    axios
-      .get(`${WEATHER_API_URL}&q=${cityName}&aqi=no`)
-      .then((response) => {
-        setWeather(response.data.current.temp_c);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <div>
