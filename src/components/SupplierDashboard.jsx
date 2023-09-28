@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { collectMoney, resetMachine } from "../redux/actions";
+import { collectMoney, resetMachine, showPopup } from "../redux/actions";
 import { logout } from "../redux/actions";
 
 function SupplierDashboard() {
@@ -9,9 +9,11 @@ function SupplierDashboard() {
 
   function handleCollectMoneyClick() {
     if (state.machineBalance <= 0) {
-      alert("There is no money in the machine right now.");
+      dispatch(showPopup("There is no money in the machine right now."));
     } else {
-      alert(`Here is your ${state.machineBalance}  ₺. Have a nice day!`);
+      dispatch(
+        showPopup(`Here is your ${state.machineBalance}  ₺. Have a nice day!`)
+      );
       dispatch(collectMoney());
     }
   }
@@ -19,9 +21,9 @@ function SupplierDashboard() {
   function handleResetProductsClick() {
     const currentProducts = state.products;
     if (isMachineAlreadyFull(currentProducts)) {
-      alert("Machine is already full of products!");
+      dispatch(showPopup("Machine is already full of products!"));
     } else {
-      alert(`All product quantities are set to 5.`);
+      dispatch(showPopup("All product quantities are set to 5."));
       dispatch(resetMachine());
     }
   }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions";
+import { login, showPopup } from "../redux/actions";
 import { securityCheck } from "../util/security";
 import { failLoginAttempt } from "../redux/actions";
 
@@ -17,10 +17,12 @@ function LoginContainer() {
     if (!securityCheck(passwordInput)) {
       dispatch(failLoginAttempt());
       if (state.remainingAttempt > 1) {
-        alert("Invalid password!");
+        dispatch(showPopup("Invalid password!"));
       } else {
-        alert(
-          "You entered invalid password for 3 times. Please contact security."
+        dispatch(
+          showPopup(
+            "You entered invalid password for 3 times. Please contact security."
+          )
         );
       }
     } else {

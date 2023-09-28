@@ -11,6 +11,8 @@ const initialState = {
   selectedProduct: null,
   robotArmSpinning: false,
   components: components,
+  isPopupOpen: false,
+  popUpContent: "",
 };
 
 const vendingMachineReducer = (state = initialState, action) => {
@@ -184,6 +186,21 @@ const vendingMachineReducer = (state = initialState, action) => {
           }
         }),
       };
+    case "SHOW_POPUP":
+      const content = action.payload;
+      return {
+        ...state,
+        isPopupOpen: true,
+        popUpContent: content,
+      };
+
+    case "CLOSE_POPUP":
+      return {
+        ...state,
+        isPopupOpen: false,
+        popUpContent: "",
+      };
+
     default:
       return state;
   }

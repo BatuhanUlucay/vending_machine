@@ -3,7 +3,7 @@ import MoneyInsert from "./MoneyInsert";
 import { useSelector, useDispatch } from "react-redux";
 import LoginContainer from "./LoginContainer";
 import SessionExpire from "./SessionExpire";
-import { giveRefund } from "../redux/actions";
+import { giveRefund, showPopup } from "../redux/actions";
 import RobotArmSpinner from "./RobotArmSpinner";
 import SupplierDashboard from "./SupplierDashboard";
 
@@ -17,7 +17,16 @@ function VendingMachine() {
   const dateTimeAfterTenSecs = new Date().getTime() + TEN_SECS_IN_MS;
 
   function handleGiveRefundClick() {
-    alert(`Money given back as refund: ${state.userBalance}. Have a nice day!`);
+    dispatch(
+      showPopup(
+        `${
+          state.userBalance > 0
+            ? `Money given back as refund: ${state.userBalance}  ₺.`
+            : ""
+        } Have a nice day!`
+      )
+    );
+
     dispatch(giveRefund());
   }
 

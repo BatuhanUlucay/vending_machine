@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectProduct } from "../redux/actions";
+import { selectProduct, showPopup } from "../redux/actions";
 
 function Product({ product }) {
   const dispatch = useDispatch();
@@ -8,9 +8,9 @@ function Product({ product }) {
 
   function handleSelectItemClick() {
     if (state.userBalance < product.price) {
-      alert("Not enough money for selected product.");
+      dispatch(showPopup("Not enough money for selected product."));
     } else if (product.quantity <= 0) {
-      alert(`There is no ${product.name} left.`);
+      dispatch(showPopup(`There is no ${product.name} left.`));
     } else {
       dispatch(selectProduct(product));
     }

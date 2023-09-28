@@ -53,3 +53,12 @@ export const adjustHeaterCooler = (mode) => ({
   type: "ADJUST_HEATER_COOLER",
   payload: mode,
 });
+
+export const showPopup = (content) => ({
+  type: "SHOW_POPUP",
+  payload: content,
+});
+
+export const closePopup = () => ({
+  type: "CLOSE_POPUP",
+});

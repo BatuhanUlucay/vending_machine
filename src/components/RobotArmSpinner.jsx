@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { Watch } from "react-loader-spinner";
 import { useCountdown } from "../hooks/useCountdown";
 import { useDispatch, useSelector } from "react-redux";
-import { giveSelectedProduct, cancelRequest } from "../redux/actions";
+import {
+  giveSelectedProduct,
+  cancelRequest,
+  showPopup,
+} from "../redux/actions";
 
 function RobotArmSpinner({ targetDate }) {
   const dispatch = useDispatch();
@@ -11,7 +15,7 @@ function RobotArmSpinner({ targetDate }) {
   useEffect(() => {
     if (minutes + seconds <= 0) {
       dispatch(giveSelectedProduct());
-      alert(`Here is your ${state.selectedProduct.name}. Enjoy!`);
+      dispatch(showPopup(`Here is your ${state.selectedProduct.name}. Enjoy!`));
     }
   }, [seconds, minutes]);
 
