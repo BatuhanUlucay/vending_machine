@@ -17,7 +17,21 @@ function SupplierDashboard() {
   }
 
   function handleResetProductsClick() {
-    dispatch(resetMachine());
+    const currentProducts = state.products;
+    if (isMachineAlreadyFull(currentProducts)) {
+      alert("Machine is already full of products!");
+    } else {
+      alert(`All product quantities are set to 5.`);
+      dispatch(resetMachine());
+    }
+  }
+
+  function isMachineAlreadyFull(products) {
+    const productQuantity = products.reduce(
+      (quantity, currentProduct) => currentProduct.quantity + quantity,
+      0
+    );
+    return productQuantity === 15;
   }
 
   function handleLogoutClick() {
