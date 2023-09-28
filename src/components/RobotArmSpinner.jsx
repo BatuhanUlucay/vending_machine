@@ -20,7 +20,7 @@ function RobotArmSpinner({ targetDate }) {
   }
 
   return (
-    <div>
+    <div className="robot-arm-spinner">
       <Watch
         height="80"
         width="80"

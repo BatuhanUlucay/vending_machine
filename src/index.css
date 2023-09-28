@@ -81,6 +81,13 @@ div.product > img {
   padding: 6px 15px;
 }
 
+.robot-arm-spinner {
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ------------------ VENDING MACHINE -------------- */
 
 /* ------------------ SYSTEM DASHBOARD -------------- */

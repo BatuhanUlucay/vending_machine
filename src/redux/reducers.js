@@ -37,6 +37,13 @@ const vendingMachineReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: false,
+        components: components.map((c) => {
+          if (c.id === 2) {
+            return { ...c, status: 0 };
+          } else {
+            return c;
+          }
+        }),
       };
     case "INSERT_MONEY":
       return {
