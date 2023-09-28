@@ -8,7 +8,7 @@ function MoneyInsert() {
       <h2>Insert Money</h2>
       <div className="money-insert">
         {moneyUnits.map((unit) => (
-          <Coin unit={unit} />
+          <Coin unit={unit} key={unit} />
         ))}
       </div>
     </>

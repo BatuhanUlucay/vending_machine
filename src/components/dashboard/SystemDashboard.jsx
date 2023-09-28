@@ -13,7 +13,7 @@ function SystemDashboard() {
     <div className="system-dashboard bg-soft-gray rounded-small">
       <Weather cityName={VENDING_MACHINE_LOCATION} />
       {state.components.map((component) => (
-        <Component component={component} />
+        <Component component={component} key={component.id} />
       ))}
       <div>
         Current energy consumption is{" "}
