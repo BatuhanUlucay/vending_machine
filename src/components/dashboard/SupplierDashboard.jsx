@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collectMoney, resetMachine, showPopup } from "../../redux/actions";
 import { logout } from "../../redux/actions";
+import { isMachineAlreadyFull } from "../../util/machineUtils";
 
 function SupplierDashboard() {
   const dispatch = useDispatch();
@@ -23,17 +24,9 @@ function SupplierDashboard() {
     if (isMachineAlreadyFull(currentProducts)) {
       dispatch(showPopup("Machine is already full of products!"));
     } else {
-      dispatch(showPopup("All product quantities are set to 5."));
+      dispatch(showPopup("All product slots are filled."));
       dispatch(resetMachine());
     }
-  }
-
-  function isMachineAlreadyFull(products) {
-    const productQuantity = products.reduce(
-      (quantity, currentProduct) => currentProduct.quantity + quantity,
-      0
-    );
-    return productQuantity === 15;
   }
 
   function handleLogoutClick() {

@@ -1,11 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { adjustHeaterCooler } from "../../redux/actions";
-import { components } from "../../data/components";
+import { shouldTriggerHeaterOrCooler } from "../../util/machineUtils";
 import PropTypes from "prop-types";
 
 const OPTIMUM_DRINK_TEMPERATURE = 4;
+const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const WEATHER_API_URL = `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}`;
+const FIVE_MINS_IN_MS = 5 * 60 * 1000;
 
 function Weather({ cityName }) {
   const dispatch = useDispatch();
@@ -16,7 +20,7 @@ function Weather({ cityName }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    ref.current = setInterval(getCurrentWeather, 5 * 60 * 1000);
+    ref.current = setInterval(getCurrentWeather, FIVE_MINS_IN_MS);
     getCurrentWeather();
 
     return () => {
@@ -35,11 +39,7 @@ function Weather({ cityName }) {
   }, [weather]);
 
   useEffect(() => {
-    if (
-      state.components[0].status === 0 &&
-      state.components[1].status === 0 &&
-      components[3].status === 0
-    ) {
+    if (shouldTriggerHeaterOrCooler(state.components)) {
       if (weather >= OPTIMUM_DRINK_TEMPERATURE) {
         dispatch(adjustHeaterCooler("cool"));
       } else {
@@ -50,9 +50,7 @@ function Weather({ cityName }) {
 
   const getCurrentWeather = () => {
     axios
-      .get(
-        `http://api.weatherapi.com/v1/current.json?key=e284b3ad1dc44509adf164832232609&q=${cityName}&aqi=no`
-      )
+      .get(`${WEATHER_API_URL}&q=${cityName}&aqi=no`)
       .then((response) => {
         setWeather(response.data.current.temp_c);
       })

@@ -8,10 +8,6 @@ export const selectProduct = (product) => ({
   payload: product,
 });
 
-export const refundMoney = () => ({
-  type: "REFUND_MONEY",
-});
-
 export const resetMachine = () => ({
   type: "RESET_MACHINE",
 });

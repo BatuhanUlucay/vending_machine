@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Watch } from "react-loader-spinner";
 import { useCountdown } from "../../hooks/useCountdown";
