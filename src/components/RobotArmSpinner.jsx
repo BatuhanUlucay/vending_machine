@@ -27,12 +27,14 @@ function RobotArmSpinner({ targetDate }) {
         radius="48"
         color="#4fa94d"
         ariaLabel="watch-loading"
-        wrapperStyle={{}}
+        wrapperStyle={{ margin: "auto" }}
         wrapperClassName=""
         visible={true}
       />
       <h4>Your drink is preparing...</h4>
-      <button onClick={handleCancelRequestClick}>Cancel Request</button>
+      <button className="btn-refund" onClick={handleCancelRequestClick}>
+        Cancel Request
+      </button>
     </div>
   );
 }

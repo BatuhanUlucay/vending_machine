@@ -83,6 +83,9 @@ div.product > img {
 
 .robot-arm-spinner {
   margin: auto;
+  background-color: #c8cece;
+  padding: 2rem;
+  border-radius: 10px;
   display: grid;
   justify-content: center;
   align-items: center;
