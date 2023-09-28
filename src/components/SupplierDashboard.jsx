@@ -25,7 +25,7 @@ function SupplierDashboard() {
   }
 
   return (
-    <div>
+    <div className="supplier-dashboard">
       Machine Balance = {state.machineBalance}
       <button onClick={handleCollectMoneyClick}>Collect Money</button>
       <button onClick={handleResetProductsClick}>Reset Products</button>

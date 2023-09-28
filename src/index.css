@@ -9,13 +9,23 @@ body {
   justify-content: flex-start;
 }
 
+/* ------------------ VENDING MACHINE -------------- */
+
 .vending-machine {
-  background-color: #ccc;
+  background-color: #c8cece;
   padding: 20px;
   border-radius: 10px;
   width: 40rem;
-  height: 60rem;
-  margin: 5rem auto;
+  margin: 0 auto;
+}
+
+.session-expire {
+  display: flex;
+  justify-content: center;
+}
+
+.countdown {
+  margin-left: 1rem;
 }
 
 .product {
@@ -26,8 +36,8 @@ body {
   display: grid;
   column-gap: 2rem;
   grid-template-columns: auto auto auto auto auto;
-  height: 10rem;
-  background-color: #ebcccc;
+  background-color: #286da771;
+  color: #fff;
   align-items: center;
 }
 
@@ -55,13 +65,23 @@ div.product > img {
 }
 
 .coin {
-  background-color: rebeccapurple;
-  color: white;
+  background-color: rgb(209, 223, 85);
   width: 4rem;
   height: 4rem;
   border-radius: 100%;
   cursor: pointer;
 }
+
+.btn-refund {
+  background-color: #e4685d;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  color: #fff;
+  padding: 6px 15px;
+}
+
+/* ------------------ VENDING MACHINE -------------- */
 
 /* ------------------ SYSTEM DASHBOARD -------------- */
 
@@ -83,6 +103,32 @@ div.product > img {
 }
 
 /* ------------------ SYSTEM DASHBOARD -------------- */
+
+/* ------------------ SUPPLIER DASHBOARD -------------- */
+
+.supplier-dashboard {
+  margin: auto;
+  padding: 3rem;
+  border-radius: 10px;
+  display: grid;
+  text-align: center;
+  background-color: #c8cece;
+}
+
+.supplier-dashboard button {
+  margin: 1rem;
+  display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ------------------ SUPPLIER DASHBOARD -------------- */
 
 /* ------------------ LOGIN -------------- */
 

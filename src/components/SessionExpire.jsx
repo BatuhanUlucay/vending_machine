@@ -11,14 +11,15 @@ const SessionExpire = ({ targetDate }) => {
     dispatch(expireUserSession());
   }
   return (
-    <>
-      <div>
+    <div className="session-expire">
+      <p>Your session expires in </p>
+      <div className="countdown">
         <p>{minutes} minutes</p>
       </div>
-      <div>
+      <div className="countdown">
         <p>{seconds} seconds</p>
       </div>
-    </>
+    </div>
   );
 };
 
