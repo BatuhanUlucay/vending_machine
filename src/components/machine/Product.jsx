@@ -20,7 +20,10 @@ function Product({ product }) {
   }
 
   return (
-    <div className="product rounded-medium grid text-white">
+    <div
+      className="product rounded-medium grid text-white"
+      data-testid="product"
+    >
       <img src={product.imageUrl} alt={product.name + " logo"} width={100} />
       <div>{product.name}</div>
       <div>{product.price} ₺</div>
@@ -28,6 +31,7 @@ function Product({ product }) {
       <button
         className="btn-select rounded-medium"
         onClick={handleSelectItemClick}
+        data-testid="select-item-button"
       >
         Select item
       </button>

@@ -38,10 +38,14 @@ function LoginContainer() {
   }
 
   return (
-    <div className="login-container bg-soft-gray rounded-small">
+    <div
+      className="login-container bg-soft-gray rounded-small"
+      data-testid="login"
+    >
       <button
         className="rounded-small text-white"
         onClick={handleClickUserLoginClick}
+        data-testid="user-login-button"
       >
         User Login
       </button>
@@ -58,6 +62,7 @@ function LoginContainer() {
           <button
             className="rounded-small text-white"
             onClick={handleSupplierLoginClick}
+            data-testid="supplier-login-button"
           >
             Supplier Login
           </button>

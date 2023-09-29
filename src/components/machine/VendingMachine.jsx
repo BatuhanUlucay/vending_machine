@@ -44,7 +44,10 @@ function VendingMachine() {
     return <SupplierDashboard />;
   } else {
     return (
-      <div className="vending-machine bg-soft-gray rounded-small">
+      <div
+        className="vending-machine bg-soft-gray rounded-small"
+        data-testid="vending-machine"
+      >
         <SessionExpire targetDate={dateTimeAfterFiveMins} />
         {machineState.products.map((product) => (
           <Product product={product} key={product.id} />
@@ -54,6 +57,7 @@ function VendingMachine() {
         <button
           className="btn-negative rounded-small text-white"
           onClick={handleGiveRefundClick}
+          data-testid="give-refund"
         >
           Give Refund & Logout
         </button>

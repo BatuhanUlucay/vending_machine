@@ -30,7 +30,10 @@ function RobotArmSpinner({ targetDate }) {
   }
 
   return (
-    <div className="robot-arm-spinner bg-soft-gray rounded-small grid">
+    <div
+      className="robot-arm-spinner bg-soft-gray rounded-small grid"
+      data-testid="robot-arm-spinner"
+    >
       <Watch
         height="80"
         width="80"
@@ -45,6 +48,7 @@ function RobotArmSpinner({ targetDate }) {
       <button
         className="btn-negative rounded-small text-white"
         onClick={handleCancelRequestClick}
+        data-testid="cancel-request"
       >
         Cancel Request
       </button>

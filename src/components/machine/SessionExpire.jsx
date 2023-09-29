@@ -16,7 +16,7 @@ const SessionExpire = ({ targetDate }) => {
 
   // Displays a countdown on vending machine
   return (
-    <div className="session-expire">
+    <div className="session-expire" data-testid="session-expire">
       <p>Your session expires in </p>
       <div className="countdown">
         <p>{minutes} minutes</p>

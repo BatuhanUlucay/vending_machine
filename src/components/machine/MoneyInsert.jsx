@@ -6,7 +6,7 @@ function MoneyInsert() {
   return (
     <>
       <h2>Insert Money</h2>
-      <div className="money-insert">
+      <div className="money-insert" data-testid="money-insert">
         {moneyUnits.map((unit) => (
           <Coin unit={unit} key={unit} />
         ))}

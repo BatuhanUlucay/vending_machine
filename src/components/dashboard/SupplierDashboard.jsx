@@ -39,21 +39,30 @@ function SupplierDashboard() {
   }
 
   return (
-    <div className="supplier-dashboard bg-soft-gray rounded-small grid">
+    <div
+      className="supplier-dashboard bg-soft-gray rounded-small grid"
+      data-testid="supplier-dashboard"
+    >
       Machine Balance = {machineState.machineBalance}
       <button
         className="rounded-small text-white"
         onClick={handleCollectMoneyClick}
+        data-testid="collect-money"
       >
         Collect Money
       </button>
       <button
         className="rounded-small text-white"
         onClick={handleResetProductsClick}
+        data-testid="reset-products"
       >
         Reset Products
       </button>
-      <button className="rounded-small text-white" onClick={handleLogoutClick}>
+      <button
+        className="rounded-small text-white"
+        onClick={handleLogoutClick}
+        data-testid="logout"
+      >
         Logout
       </button>
     </div>

@@ -10,12 +10,15 @@ function SystemDashboard() {
   const machineState = useSelector((state) => state.machine);
 
   return (
-    <div className="system-dashboard bg-soft-gray rounded-small">
+    <div
+      className="system-dashboard bg-soft-gray rounded-small"
+      data-testid="system-dashboard"
+    >
       <Weather cityName={VENDING_MACHINE_LOCATION} />
       {machineState.components.map((component) => (
         <Component component={component} key={component.id} />
       ))}
-      <div>
+      <div data-testid="energy-consumption-div">
         Current energy consumption is{" "}
         {getCurrentEnergyConsumption(machineState.components)} units/hour
       </div>
