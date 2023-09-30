@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const OPTIMUM_DRINK_TEMPERATURE = 4;
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-const WEATHER_API_URL = `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}`;
+const WEATHER_API_URL = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}`;
 const FIVE_MINS_IN_MS = 5 * 60 * 1000;
 
 function Weather({ cityName }) {
