@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Vending Machine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple vending machine application, written with JavaScript and React, that allows users to take actions like inserting money, selecting items, taking a refund etc. It also implements a dashboard for visualizing the currenct status of the machine (e.g status of components, energy consumption etc.) and a panel for collecting money and reseting the products for vending machine supplier.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+You can access the demo website by clicking [here](https://vending-machine-aselsan.netlify.app/).
 
-### `npm start`
+```
+Supplier password: 123
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Note that supplier login requires a password, and the password is defined in an environment variable. For this demo website, password is set 123 for simplicity reasons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Altough I know keeping a password in an environment variable is not secure, I did it this way since this is an only frontend project.
 
-### `npm test`
+## Running the application locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Firstly, create a .env file in root directory.
 
-### `npm run build`
+```
+REACT_APP_WEATHER_API_KEY = <YOUR_API_KEY>
+REACT_APP_SUPPLIER_PASSWORD = <YOUR_SUPPLIER_PASSWORD>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can get an API Key by signing up to [Weather API](https://www.weatherapi.com/).
+Note that demo application uses a free trial version, it can be expired someday.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can set any string to supplier password field.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Secondly,
 
-### `npm run eject`
+```
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Application should start in localhost:3000 by default.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Application details
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can find more details about the project in the presentation attached to the mail.
